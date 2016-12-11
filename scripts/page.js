@@ -40,14 +40,14 @@ $(window).on('resize',() => {
 
 function loadPlaylist()
 {
-	playlistParser.parse(openFileSync([{name: 'Playlists', extensions: ['m3u','wpl']}]));
+	playlistParser.parse(openFileSync([{name: 'Playlists', extensions: ['m3u','audpl','wpl']}, {name: 'All Files', extensions:["*"]}]));
 	setTimeout(refreshPlaylist, 200);//wait for async calls to finish from parsing the playlist
 	//playlistParser.parse("/media/ryan/90B287ADB28795FE/Users/Ryan/Music/Playlists/Last Played.m3u")
 }
 
 function importPlaylist()
 {
-	openFile("Import a Playlist", [{name: 'Playlists', extensions: ['m3u','wpl']}], (paths) => {
+	openFile("Import a Playlist", [{name: 'Playlists', extensions: ['m3u','audpl','wpl']}, {name: 'All Files', extensions:["*"]}], (paths) => {
 		playlistParser.parseAdditionalPlaylist(paths[0]);
 		setTimeout(refreshPlaylist, 200);
 	});	

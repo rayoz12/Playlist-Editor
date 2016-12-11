@@ -39,6 +39,7 @@ function parsePath(playlistFilePath)
 		//raw audacious playlist format
 		case 'audpl':
 			parser = new requireParser.parser(playlistFilePath);
+			break;
 		case 'wpl':
 		default:
 			throw new Error("Not implemented!");

@@ -90,18 +90,14 @@ parser.prototype.getPaths = function()
 	return this.absoluteTracks;
 }
 
+//This returns an array of file paths from the file with the playlist dependent
+//text stripped off
 parser.prototype.getRawPaths = function(data)
 {
 	let lineArray = data.toString().split("\n");
-	let TrackPaths = [];
-    for(var i=0;i<lineArray.length;i++)
-	{
-		//check if the current line is a path.
-	    if(!lineArray[i].includes("#") && isPath(lineArray[i]))
-		{
-			TrackPaths.push(cleanPath(lineArray[i]));
-		}
-	}
+	let TrackPaths = $.grep(lineArray, function(n, i) {
+		return (!n.includes("#") && isPath(n));	
+	});
 	return TrackPaths;
 }
 
@@ -115,7 +111,6 @@ parser.prototype.getAbsolutePaths = function(data)
 		let normalPath = path.resolve(this.playlistProps.dir, fixedPath);
 		trackPaths.push(normalPath.trim());
 	}
-	
 
 	return trackPaths;
 }
