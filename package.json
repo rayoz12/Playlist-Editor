@@ -1,0 +1,19 @@
+{
+  "name": "playlist_extractor",
+  "version": "1.0.0",
+  "description": "Extract m3u and wpl playlist songs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^1.4.1"
+  },
+  "dependencies": {
+    "sortablejs": "^1.4.2",
+    "jquery":"^3.1.1"
+  }
+}

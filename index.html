@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Playlist Extractor</title>
+    <link rel="stylesheet" type="text/css" href="CSS/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="CSS/index.css" media="screen" />
+  </head>
+  <body>
+  	<input type="button" class="buttonStyle" value="refresh page" onclick="location.reload();" />
+    <h1>Playlist Loaded: <span id="playlistName"><i>None</i></span></h1>
+	<input type="button" class="buttonStyle" id="playlistSelect" value="Select a playlist" />
+	<input type="button" class="buttonStyle" id="refreshPlaylist" value="refresh playlist" />
+	<input type="button" class="buttonStyle" id="importPlaylist" value="Import Tracks from another playlist" />
+	<input type="button" class="buttonStyle" id="addTracks" value="Add tracks" />
+	<input type="button" class="buttonStyle" id="shufflePlaylist" value="Shuffle" />
+	
+	<div id="playlistContainer">
+		<ol id="playlist"></ol>
+		<div id="selectionControls" class="SelControlContainer">
+			<span id="SelectionUp" class="SelControls fa fa-2x fa-border fa-arrow-up"></span>
+			<span id="SelectionDown" class="SelControls fa fa-2x fa-border fa-arrow-down"></span>
+			<span id="Add" class="SelControls fa fa-2x fa-border fa-plus"></span>
+			<span id="SelectionDelete" class="SelControls fa fa-2x fa-border fa-ban"></span>
+		</div>
+	</div>
+	
+	<div id="player">
+		<div id="playerControls">
+			<span id="trackName">Testing a new track name:</span>
+			<span id="controlsContainer" class="controlsContainer">
+				<span id="PrevTrack" class="fa fa-fast-backward controlsPad"></span>
+				<span id="PlayPause" class="fa fa-pause controlsPad"></span>
+				<span id="NextTrack" class="fa fa-fast-forward controlsPad"></span>
+				<span id="StopTrack" class="fa fa-stop controlsPad"></span>
+				<span id="Volume" class="fa fa-volume-up controlsPad"></span>
+				<input id="VolumeRange" type="range"/>
+			</span>
+		</div>
+	</div>
+	
+	<input type="button" class="buttonStyle" id="savePlaylist" value="Save" />
+	<input type="button" class="buttonStyle" id="exportTracks" value="Export Tracks" />
+	<script>
+		window.$ = window.jQuery = require('./scripts/libs/jquery-3.1.1.min.js');
+	</script>
+	<script src="scripts/utils.js"></script>
+	<script src="scripts/page.js"></script>	
+ </body>
+</html>

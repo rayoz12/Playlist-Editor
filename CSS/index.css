@@ -1,0 +1,149 @@
+/* body styles */
+html body
+{
+	background: #005a8a;
+	color:white;
+	min-height: 100%;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/*button styles*/
+.buttonStyle
+{
+	background: #3498db;
+	border-radius: 4px;
+	text-shadow: 1px 0px 26px #666666;
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 13px;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
+	border: 0;
+}
+
+.buttonStyle:hover
+{
+	background: #3cb0fd;
+	text-decoration: none
+}
+
+/*page css*/
+.SelControlContainer
+{
+	position: absolute;
+    right: 10px;
+    top: 5px;
+    display:block;
+}
+
+.SelControls:hover
+{
+	/*color:#33c814;*/
+	filter:invert(100%);
+}
+
+/*player styles*/
+#player
+{
+    position: fixed;
+    bottom: 0;
+    width: 90%;
+    height:7%;
+    
+    background: #ff2d2d;
+    box-shadow: 0 0 15px #00214B;
+    font-size:30px;	    
+    
+    margin-left:200px;
+    margin-bottom:-10px;
+    
+    display:inline-block;
+}
+
+.controlsContainer
+{
+	float:right;
+	padding-right: 50px;
+}
+
+#playerControls
+{
+	padding-left: 20px;
+}
+
+.controlsPad
+{
+	padding: 0px 30px 0px 30px;
+}
+
+.controlsPad:active
+{
+	color:#005a8a;
+}
+
+.controlsPad:hover
+{
+	color:#3498db;
+}
+
+#trackName
+{
+	white-space:nowrap;
+	width:250px !important;
+	overflow:hidden;
+	font-style: italic;
+}
+
+/*List styles*/
+#playlistContainer
+{
+	padding:15px;
+	position: relative;
+}
+
+#playlist
+{
+	border:double black;
+	overflow:hidden; 
+	overflow-y:auto;
+	height:70vh;
+	width: 240vh;
+}
+
+.playlistSelected
+{
+	background: #2db327 !important;
+}
+
+.playIcon
+{
+	float:right;
+	font-size:25px;
+	padding:13px;
+	cursor:pointer;
+	color:green;
+}
+
+.playIcon:hover
+{
+	color:#00d800;
+}
+
+
+ol 
+{
+    *list-style: decimal; /* Keep using default numbering for IE6/7 */
+    font: 15px 'trebuchet MS', 'lucida sans';
+    margin-bottom: 4em;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+li 
+{ 
+	background: #234552; 
+	height:50px;
+    padding: .4em .4em .4em 2em;
+    margin: .5em 0;
+}
+li:nth-child(odd) { background: #6a94a5; }
