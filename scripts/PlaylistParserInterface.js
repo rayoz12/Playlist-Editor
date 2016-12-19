@@ -27,23 +27,16 @@ function parsePath(playlistFilePath)
 {
 	//returns the file extention without the dot
 	let fileExt = playlistFilePath.split('.').pop();
-	
-	var requireParser = require("./Parser/" + fileExt + ".js");
-	
-	switch (fileExt)
-	{	
-		//m3u format
-		case 'm3u':
-			parser = new requireParser.parser(playlistFilePath);
-			break;
-		//raw audacious playlist format
-		case 'audpl':
-			parser = new requireParser.parser(playlistFilePath);
-			break;
-		case 'wpl':
-		default:
-			throw new Error("Not implemented!");
+	try 
+	{
+		var requireParser = require("./Parser/" + fileExt + ".js");
 	}
+	catch (err)
+	{
+		throw "Playlist not implemented!"; 
+	}
+	
+	parser = new requireParser.parser(playlistFilePath);
 }
 
 function additionalPlaylist(playlistPath)

@@ -17,11 +17,13 @@ document.getElementById("importPlaylist").addEventListener("click", importPlayli
 
 document.getElementById("refreshPlaylist").addEventListener("click", refreshPlaylist);
 
-document.getElementById("addTracks").addEventListener("click", addTracks);
+document.getElementById("SelectionUp").addEventListener("click", moveSelectionUp);
+document.getElementById("SelectionDown").addEventListener("click", moveSelectionDown);
+document.getElementById("Add").addEventListener("click", addTracks);
+document.getElementById("SelectionDelete").addEventListener("click", deleteSelection);
 
 document.getElementById("savePlaylist").addEventListener("click", savePlaylist);
 document.getElementById("exportTracks").addEventListener("click", exportPlaylist);
-
 
 
 document.getElementById("shufflePlaylist").addEventListener("click", shufflePlaylist);
@@ -106,7 +108,7 @@ function savePlaylist()
 {
 	var info = "Relative paths are well suited to windows and linux as it contains no OS dependent information." + "\n" +
 		   "However some media players only work on absolute file paths so in some circumstances it is" + 
-		   "better to export absolute, this had the draw back of being os dependent though.";
+		   "better to export absolute, this has the draw back of being os dependent though.";
 		   
 	var options = ["Absolute", "Relative", "Information", "Cancel"]
 	
@@ -142,7 +144,7 @@ function isValidName(savePath)
 {
 	if (savePath == undefined)
 		return false;
-	if (savePath.split('.').pop() != '.m3u')
+	if (savePath.split('.').pop() != 'm3u')
 	{
 		response = showDialog("You are saving to a file without a .m3u file extention, are you sure you want to continue?",
 					"warning", ["Yes", "No"], "Save File Warning");
@@ -241,6 +243,7 @@ function moveSelectionDown()
 {
 	var selected = $(".playlistSelected");
 	if (selected == undefined)
+		return;
 	var nextElem = selected[selected.length - 1].nextSibling;
 	selected.insertAfter(nextElem);
 }
@@ -248,8 +251,16 @@ function moveSelectionDown()
 function moveSelectionUp()
 {
 	var selected = $(".playlistSelected");
+	if (selected == undefined)
+		return;
 	var prevElem = selected[0].previousSibling;
-	selected.insertAfter(prevElem);
+	selected.insertBefore(prevElem);
+	$('#playlist').scrollTop($('.playlistSelected').scrollTop()-20);
+}
+
+function deleteSelection()
+{
+	$(".playlistSelected").remove();
 }
 
 
